@@ -7,6 +7,16 @@ const dispYear = document.getElementById('disp-year');
 const dispMonth = document.getElementById('disp-month');
 const dispDay = document.getElementById('disp-day');
 const form = document.getElementById('calc-form');
+const msgPara = document.querySelector('.msg-p');
+
+
+// GETTING TODAY'S DATE
+let today, tDay, tmonth, tYear;
+today = new Date();
+tDay = today.getDate();
+tmonth = today.getMonth() + 1;
+tYear = today.getFullYear();
+
 
 // EVENT LISTENER FOR BUTTON
 subBtn.addEventListener('click', (e) => {
@@ -18,26 +28,32 @@ subBtn.addEventListener('click', (e) => {
         dYear : parseInt(getYear.value)
     };
 
-    // GETTING TODAY'S DATE
-    let today = new Date();
-    let tDay = today.getDate();
-    let tmonth = today.getMonth() + 1;
-    let tYear = today.getFullYear();
+    if(dataCollected.dDay <= 31 && dataCollected.dMonth <= 12 && dataCollected.dYear <= tYear){
+        //calculating the date
+        let birthYear, birthDay, birthMonth;
+        birthYear = tYear - dataCollected.dYear;
+        birthDay = tDay - dataCollected.dDay;
+        birthMonth = tmonth - dataCollected.dMonth;
+        
 
-    //calculating the date
-    let birthYear = tYear - dataCollected.dYear;
-    let birthDay = tDay - dataCollected.dDay;
-    let birthMonth = tmonth - dataCollected.dMonth;
-
-    //changing ui styles
-    dispYear.textContent = birthYear;
-    dispDay.textContent = birthDay;
-    dispMonth.textContent = birthMonth;
-
+        //changing ui styles
+        dispYear.textContent = birthYear;
+        dispDay.textContent = birthDay;
+        dispMonth.textContent = birthMonth;
+        msgPara.textContent  = 'Your Age is ' + birthYear +  ' Years ' + birthMonth + ' Month ' + birthDay +  ' Days'
+        msgPara.style.color = "black";
+        console.log('pass');
+    }else{
+        msgPara.textContent  = "Pls Enter in a correct format";
+        msgPara.style.color = "red";
+        console.log('failed');
+    }
+    
     form.reset();
 });
 
 
+    
 
 
 
