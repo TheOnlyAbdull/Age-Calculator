@@ -12,19 +12,19 @@
         <div class="container">
             <div class="content">
                 <h1>Age Calculator</h1>
-                <form>
+                <form id="calc-form">
                     <div class="input-div">
                         <div class="inputs">
-                            <label for="Date">Date</label>
-                            <input type="text" class="input-date" id="date" placeholder="01">
+                            <label for="Day">Day</label>
+                            <input type="text" id="day" placeholder="**">
                         </div>
                         <div class="inputs">
                             <label for="month">Month</label>
-                            <input type="text" class="input-month" id="month" placeholder="01">
+                            <input type="text" id="month" placeholder="**">
                         </div>
                         <div class="inputs">
                             <label for="year">Year</label>
-                            <input type="text" class="input-year" id="year" placeholder="1999">
+                            <input type="text" id="year" placeholder="****">
                         </div>
                         
                        
@@ -34,7 +34,7 @@
                     </div>
                 </form>
                 <div class="para-div">
-                    <p>Your Age is <span id="years">-- </span>Years <span id="months">-- </span>Month <span id="days">-- </span>Days</p>
+                    <p>Your Age is <span id="disp-year"> -- </span> Years <span id="disp-month">-- </span> Month <span id="disp-day">-- </span> Days</p>
                 </div>
             </div>
         </div>
